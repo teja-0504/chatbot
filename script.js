@@ -1,4 +1,4 @@
-const OPENROUTER_API_KEY = "ssk-or-v1-88140f447daea4fd92ebb220c0d09a642222bc8e10c3e278d0bdfd2a8ddaec78";
+const OPENROUTER_API_KEY = "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";
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
 // DOM Elements
