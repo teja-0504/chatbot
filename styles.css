@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    background: #0a0a0a;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.voice-mode {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.voice-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #87CEEB, #6dd5ed);
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(135, 206, 235, 0.3);
+    transition: transform 0.3s;
+}
+
+.voice-circle.listening {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(0.95); }
+}
+
+.chat-mode {
+    width: 400px;
+    background: rgba(0, 0, 0, 0.9);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+    flex-direction: column;
+}
+
+.chat-mode.active {
+    display: flex;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 15px;
+    max-width: 80%;
+    animation: fadeIn 0.3s;
+}
+
+.user-message {
+    background: rgba(135, 206, 235, 0.15);
+    margin-left: auto;
+}
+
+.bot-message {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.chat-input {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #87CEEB;
+    color: #0a0a0a;
+    cursor: pointer;
+}
+
+.mode-controls {
+    margin-top: 20px; /* Add margin to create a gap */
+}
+
+.voice-circle.speaking {
+    animation: speakingPulse 1s infinite;
+}
+
+@keyframes speakingPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
