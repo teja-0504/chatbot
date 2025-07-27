@@ -1,2 +1,2 @@
 // Replace with your actual OpenRouter API key
-export const OPENROUTER_API_KEY = "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";
+export const OPENROUTER_API_KEY = "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";
