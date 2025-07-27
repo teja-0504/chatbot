@@ -1,4 +1,4 @@
-const OPENROUTER_API_KEY = "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";
+import { OPENROUTER_API_KEY } from './config.js';
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
 // DOM Elements
@@ -114,7 +114,6 @@ function speakResponse(text) {
 
 // Add this function to avoid errors if not implemented
 function toggleSpeakingAnimation(isSpeaking) {
-    // Example: add/remove 'speaking' class for animation
     if (isSpeaking) {
         voiceCircle.classList.add('speaking');
     } else {
