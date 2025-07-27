@@ -1,5 +1,20 @@
-import { OPENROUTER_API_KEY } from './config.js';
+let OPENROUTER_API_KEY = "";
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
+
+// Fetch the API key from the backend
+async function fetchApiKey() {
+    try {
+        const response = await fetch('/api/config');
+        if (response.ok) {
+            const data = await response.json();
+            OPENROUTER_API_KEY = data.OPENROUTER_API_KEY || "";
+        } else {
+            console.error('Failed to fetch API key from server');
+        }
+    } catch (error) {
+        console.error('Error fetching API key:', error);
+    }
+}
 
 // DOM Elements
 const voiceCircle = document.getElementById('voiceCircle');
@@ -185,10 +200,6 @@ async function getAIResponse(query) {
     }
 }
 
-// Initialize the app
-initSpeechRecognition();
-console.log('App initialized');
-
 // Save Chat
 async function saveChat(user, message, response) {
     try {
@@ -219,3 +230,8 @@ async function loadHistory(user) {
         return [];
     }
 }
+
+// Initialize the app after fetching the API key
+fetchApiKey().then(() => {
+    initSpeechRecognition();
+});

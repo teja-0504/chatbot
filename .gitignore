@@ -1,2 +1,3 @@
 # Ignore config file containing sensitive API keys
 config.js
+.envnode_modules/
