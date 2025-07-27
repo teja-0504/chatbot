@@ -161,7 +161,7 @@ async function getAIResponse(query) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'meta-llama/llama-3.1-8b-instruct:free',
+                model: 'openai/gpt-3.5-turbo',
                 messages: [{ role: 'user', content: query }]
             })
         });
@@ -184,7 +184,7 @@ async function getAIResponse(query) {
 // Save Chat
 async function saveChat(user, message, response) {
     try {
-        const res = await fetch('http://localhost:3000/api/chats', { 
+        const res = await fetch('/api/chats', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ user, message, response })
